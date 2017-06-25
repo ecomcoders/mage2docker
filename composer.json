@@ -1,0 +1,41 @@
+{
+    "name": "ecomcoders/mage2docker",
+    "description": "Magento 2 Docker infrastructure definitions",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Michael Sauerwald",
+            "email": "dev@ecomcoders.com",
+            "homepage": "https://ecomcoders.com",
+            "role": "Author"
+        },
+        {
+            "name": "Christian Grugel",
+            "email": "dev@ecomcoders.com",
+            "homepage": "https://ecomcoders.com",
+            "role": "Author"
+        }
+    ],
+    "type": "magento2-component",
+    "homepage": "https://ecomcoders.com",
+    "extra": {
+        "map": [
+            [
+                "docker-compose.yml",
+                "docker-compose.yml"
+            ],
+            [
+                "config",
+                "config"
+            ],
+            [
+                ".env",
+                ".env"
+            ],
+            [
+                "bin/console",
+                "bin/console"
+            ]
+        ]
+    }
+}
