@@ -43,7 +43,7 @@
         "chmod": [
             {
                 "mask": "0755",
-                "path": "../../../bin/console.sh"
+                "path": "bin/console.sh"
             }
         ]
     }
