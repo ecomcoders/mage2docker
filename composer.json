@@ -32,8 +32,8 @@
                 "config"
             ],
             [
-                ".env",
-                ".env"
+                ".env.dist",
+                ".env.dist"
             ],
             [
                 "bin/console.sh",
