@@ -10,10 +10,12 @@ CONFIGFOLDER="$PROJECTPATH/config"
 ENVIRONMENTVARIABLESFILE="$PROJECTPATH/.env"
 DOCKERCOMPOSEFILE="$PROJECTPATH/docker-compose.yml"
 
-includeEnvVarFileAndExportVars()
+generateDockerEnvFile()
 {
-    . "$ENVIRONMENTVARIABLESFILE"
-    export $(grep "^[^#]" "$ENVIRONMENTVARIABLESFILE" | cut -d= -f1 )
+    if [ ! -f "${PROJECTPATH}/.env" ]; then
+        cp .env.dist .env
+        echo 'Generated docker .env file. Feel free to adapt it to your needs.'
+    fi
 }
 
 createSharedDirectoriesIfNotExists()
@@ -21,6 +23,12 @@ createSharedDirectoriesIfNotExists()
     if [ ! -d "${PROJECTPATH}/shared/htdocs" ]; then
         mkdir -p ${PROJECTPATH}/shared/htdocs ${PROJECTPATH}/shared/db
     fi
+}
+
+includeEnvVarFileAndExportVars()
+{
+    . "$ENVIRONMENTVARIABLESFILE"
+    export $(grep "^[^#]" "$ENVIRONMENTVARIABLESFILE" | cut -d= -f1 )
 }
 
 start()
@@ -87,8 +95,9 @@ info() {
 #######################################
 # Main programm logic
 #######################################
-includeEnvVarFileAndExportVars
+generateDockerEnvFile
 createSharedDirectoriesIfNotExists
+includeEnvVarFileAndExportVars
 
 arguments=${*:-}
 set -- "$arguments"

@@ -36,8 +36,8 @@
                 ".env"
             ],
             [
-                "bin/console",
-                "bin/console"
+                "bin/console.sh",
+                "bin/console.sh"
             ]
         ]
     }
