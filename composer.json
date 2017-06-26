@@ -39,12 +39,6 @@
                 "bin/console.sh",
                 "bin/console.sh"
             ]
-        ],
-        "chmod": [
-            {
-                "mask": "0755",
-                "path": "bin/console.sh"
-            }
         ]
     }
 }
