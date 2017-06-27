@@ -20,7 +20,7 @@
     "homepage": "https://ecomcoders.com",
     "scripts": {
         "post-install-cmd": [
-            "cp docker-compose.yml ../../docker-compose.yml"
+            "cp docker-compose.yml ../docker-compose.yml"
         ]
     }
 }
