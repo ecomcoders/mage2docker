@@ -44,7 +44,7 @@ stop()
 installMagento()
 {
     # see http://devdocs.magento.com/guides/v2.1/install-gde/install/cli/install-cli-install.html
-    executeInDocker composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition /var/www/html
+    executeInDocker composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition /var/www/html || true
     executeInDocker "chmod +x /var/www/html/bin/magento \
         && /var/www/html/bin/magento setup:install \
             --admin-firstname=${ADMIN_FIRSTNAME} \
