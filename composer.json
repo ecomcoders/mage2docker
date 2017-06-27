@@ -18,27 +18,9 @@
     ],
     "type": "magento2-component",
     "homepage": "https://ecomcoders.com",
-    "require": {
-        "magento/magento-composer-installer":"^0.1.12"
-    },
-    "extra": {
-        "map": [
-            [
-                "docker-compose.yml",
-                "docker-compose.yml"
-            ],
-            [
-                "config",
-                "config"
-            ],
-            [
-                ".env.dist",
-                ".env.dist"
-            ],
-            [
-                "bin/console.sh",
-                "bin/console.sh"
-            ]
+    "scripts": {
+        "post-install-cmd": [
+            "cp docker-compose.yml ../../docker-compose.yml"
         ]
     }
 }
