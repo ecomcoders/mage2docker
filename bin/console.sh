@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Enable bash strict mode
-set -euo pipefail
+set -eo pipefail
 
 # Define globals
 SCRIPTNAME="bin/$(basename $0)"
@@ -102,10 +102,8 @@ generateDockerEnvFile
 createSharedDirectoriesIfNotExists
 includeEnvVarFileAndExportVars
 
-arguments=${*:-}
-set -- "$arguments"
 
-case $1 in
+case "$1" in
     install)
     installMagento
     ;;
