@@ -68,8 +68,11 @@ installMagento()
 }
 
 executeInDocker() {
-  # pass the arguments to the bin/magento script inside the PHP container
   docker-compose exec php bash -c "$*"
+}
+
+executeBinMagentoInDocker() {
+    docker-compose exec php bash -c "bin/magento $*"
 }
 
 usage() {
@@ -117,7 +120,7 @@ case $1 in
 
     exec)
     shift 1
-    executeInDocker $*
+    executeBinMagentoInDocker $*
     ;;
 
     info)
