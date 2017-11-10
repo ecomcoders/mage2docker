@@ -1,5 +1,7 @@
 FROM php:7.0-fpm
 
+ARG user_id
+
 ENV PHP_EXTRA_CONFIGURE_ARGS="--enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data --enable-intl --enable-opcache --enable-zip"
 
 RUN apt-get update && apt-get install -y \
@@ -21,3 +23,6 @@ RUN apt-get update && apt-get install -y \
     && echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.max_nesting_level=1000" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+
+RUN if [ ! -z $user_id ] ; usermod  -u $user_id www-data ; fi

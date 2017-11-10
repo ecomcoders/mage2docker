@@ -18,6 +18,8 @@ services:
 
   php:
     build: config/php
+    args:
+      - user_id=${USER_ID}
     user: www-data
     volumes:
       - ./config/php/php.ini:/usr/local/etc/php/php.ini
